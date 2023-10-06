@@ -1,9 +1,11 @@
+import {mdiFileAccount} from "./assets/file-account.svg";
+
 export default function Header() {
 	
 
 	return (
 		<div className="headerContainer">
-			{/* Create header stuff here */}
+			<img src={mdiFileAccount}></img>
 		</div>
 	);
 }
