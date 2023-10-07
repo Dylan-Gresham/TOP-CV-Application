@@ -13,7 +13,6 @@ export default function Editor() {
 	}
 
 	function changePreviewEducationInputs(childProps) {
-		console.log(childProps);
 		setPreviewEduactionInputs({...previewEducationInputs, schoolName: childProps.schoolName, major: childProps.major, startDate: childProps.startDate, endDate: childProps.endDate});
 	}
 
