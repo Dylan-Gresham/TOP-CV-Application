@@ -14,6 +14,8 @@ export default function PersonalInfo({callback}) {
 			setInputs({...inputs, email: `${info}`});
 		} else if(designator === 4) {
 			setInputs({...inputs, fax: `${info}`});
+		} else {
+			setInputs({...inputs});
 		}
 	}
 
@@ -25,27 +27,27 @@ export default function PersonalInfo({callback}) {
 		<div className="personalInfoContainer">
 			<div className="inputContainer">
 				<label className="inputLabel" htmlFor="firstNameInput">First Name:  </label>
-				<input className="personalInfoInput" id="firstNameInput" placeholder={inputs.firstName} 
+				<input className="personalInfoInput" id="firstNameInput" placeholder={inputs.firstName} type="text"
 					onChange={(event) => handleChange(0, event.target.value)}></input>
 			</div>
 			<div className="inputContainer">
 				<label className="inputLabel" htmlFor="lastNameInput">Last Name:  </label>
-				<input className="personalInfoInput" id="lastNameInput" placeholder={inputs.lastName} 
+				<input className="personalInfoInput" id="lastNameInput" placeholder={inputs.lastName} type="text"
 					onChange={(event) => handleChange(1, event.target.value)}></input>
 			</div>
 			<div className="inputContainer">
 				<label className="inputLabel" htmlFor="phoneNumberInput">Phone Number:  </label>
-				<input className="personalInfoInput" id="phoneNumberInput" placeholder={inputs.phone} 
+				<input className="personalInfoInput" id="phoneNumberInput" placeholder={inputs.phone} type="tel"
 					onChange={(event) => handleChange(2, event.target.value)}></input>
 			</div>
 			<div className="inputContainer">
 				<label className="inputLabel" htmlFor="emailInput">Email:  </label>
-				<input className="personalInfoInput" id="emailInput" placeholder={inputs.email} 
+				<input className="personalInfoInput" id="emailInput" placeholder={inputs.email} type="email"
 					onChange={(event) => handleChange(3, event.target.value)}></input>
 			</div>
 			<div className="inputContainer">
 				<label className="inputLabel" htmlFor="faxInput">Fax (optional):  </label>
-				<input className="personalInfoInput" id="faxInput" placeholder={inputs.fax} 
+				<input className="personalInfoInput" id="faxInput" placeholder={inputs.fax} type="tel"
 					onChange={(event) => handleChange(4, event.target.value)}></input>
 			</div>
 			<button type="button" onClick={callCallback}>Submit</button>

@@ -13,10 +13,12 @@ export default function Editor() {
 	}
 
 	function changePreviewEducationInputs(childProps) {
+		console.log(childProps);
 		setPreviewEduactionInputs({...previewEducationInputs, schoolName: childProps.schoolName, major: childProps.major, startDate: childProps.startDate, endDate: childProps.endDate});
 	}
 
 	function changePreviewWorkExperienceInputs(childProps) {
+		console.log(childProps);
 		setPreviewWorkExperienceInputs({...previewWorkExperienceInputs, company: childProps.company, position: childProps.position, responsibilities: childProps.responsibilities, startDate: childProps.startDate, endDate: childProps.endDate});
 	}
 
