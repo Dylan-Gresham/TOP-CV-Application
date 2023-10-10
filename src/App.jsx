@@ -1,11 +1,11 @@
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
+import Preview from "./Preview.jsx";
 import Education from "./Education.jsx";
 import PersonalInfo from "./PersonalInfo.jsx";
 import WorkExperience from "./WorkExperience.jsx";
 import {useState} from "react";
 import './App.css'
-import Preview from "./Preview.jsx";
 
 function App() {
 	const inputs = {
@@ -48,7 +48,7 @@ function App() {
 
 	if(showPreview) {
 		return (
-			<div className="mainContainer">
+			<div className="mainContainerWithPreview">
 				<button className="showPreviewButton" type="button" onClick={handleShowPreview}>Go Back to Editor</button>
 				<Preview {...previewInputs} />
 			</div>
@@ -57,9 +57,9 @@ function App() {
 		return (
 			<div className="mainContainer">
 				<Header />
-				<PersonalInfo firstName={previewInputs.firstName} lastName={previewInputs.lastName} phone={previewInputs.phone} email={previewInputs.email} callback={handlePersonalInfoChange} />
-				<Education school={previewInputs.schoolName} major={previewInputs.major} startDate={previewInputs.sStartDate} endDate={previewInputs.sEndDate} callback={handleEducationChange} />
-				<WorkExperience company={previewInputs.company} position={previewInputs.position} responsibilities={previewInputs.responsibilities} startDate={previewInputs.startDate} endDate={previewInputs.endDate} callback={handleWorkExperienceChange} />
+				<PersonalInfo callback={handlePersonalInfoChange} />
+				<Education callback={handleEducationChange} />
+				<WorkExperience callback={handleWorkExperienceChange} />
 				<button className="showPreviewButton" type="button" onClick={handleShowPreview}>Show Preview</button>
 				<Footer />
 			</div>

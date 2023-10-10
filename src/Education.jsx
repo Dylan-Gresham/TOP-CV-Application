@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 export default function Education({callback}) {
 	const [inputs, setInputs] = useState({schoolName: "University Name", major: "Computer Science", startDate: "August 2021", endDate: "Present"});
@@ -43,7 +43,7 @@ export default function Education({callback}) {
 				<input className="educationInput" id="endDateInput" placeholder={inputs.endDate} type="text"
 					onChange={(event) => changeInputs(3, event.target.value)}></input>
 			</div>
-			<button type="button" className="submitButton" onClick={callCallback}>Submit</button>
+			<button className="submitButton" type="button" onClick={callCallback}>Submit</button>
 		</div>
 	);
 }

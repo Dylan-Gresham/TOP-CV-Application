@@ -60,38 +60,43 @@ export default function WorkExperience({callback}) {
 				<label className="workExperienceLabel" htmlFor="responsibilitiesInput">Responsibility 1:  </label>
 				<input className="workExperienceInput" id="responsibilitiesInput" placeholder={inputs.responsibilities} type="text"
 					onChange={(event) => changeInputs(2, event.target.value)}></input>
-				<button className="innerFunctionButton" type="button" onClick={(event) => {
-					const containerDiv = document.querySelector('.responsibilitiesDiv');
-					const newLabel = document.createElement('label');
-					newLabel.setAttribute('for', `responsibilitiesInput${newSelectorNum}`);
-					newLabel.classList.add('workExperienceLabel');
-					newLabel.textContent = `Responsibility ${newSelectorNum + 1}:  `;
-					const newInput = document.createElement('input');
-					newInput.id = `responsibilities${newSelectorNum++}`;
-					newInput.classList.add('workExperienceInput');
-					newInput.setAttribute('type', 'text');
-					newInput.setAttribute('placeholder', 'Did ...');
-					const addResponsibilityButton = document.createElement('button');
-					addResponsibilityButton.classList.add('addButton');
-					addResponsibilityButton.addEventListener('click', (event) => {
-						appendToResponsibilities(newInput.value);
+				<div className="inputButtonsDiv">
+					<button type="button" onClick={(event) => {
+						const containerDiv = document.querySelector('.responsibilitiesDiv');
+						const newLabel = document.createElement('label');
+						newLabel.setAttribute('for', `responsibilitiesInput${newSelectorNum}`);
+						newLabel.classList.add('workExperienceLabel');
+						newLabel.textContent = `Responsibility ${newSelectorNum + 1}:  `;
+						const newInput = document.createElement('input');
+						newInput.id = `responsibilities${newSelectorNum++}`;
+						newInput.classList.add('workExperienceInput');
+						newInput.setAttribute('type', 'text');
+						newInput.setAttribute('placeholder', 'Did ...');
+						const btnDiv = document.createElement('div');
+						btnDiv.classList.add('inputButtonsDiv');
+						const addResponsibilityButton = document.createElement('button');
+						addResponsibilityButton.classList.add('addButton');
+						addResponsibilityButton.addEventListener('click', (event) => {
+							appendToResponsibilities(newInput.value);
+							event.stopPropagation();
+						});
+						addResponsibilityButton.textContent = 'Add';
+						const removeButton = document.createElement('button');
+						removeButton.classList.add('innerFunctionButton');
+						removeButton.addEventListener('click', (event) => {
+							removeResponsibility(newSelectorNum - 1);
+							event.stopPropagation();
+						});
+						removeButton.textContent = 'Remove';
+						btnDiv.append(addResponsibilityButton, removeButton)
+						containerDiv.append(newLabel, newInput, btnDiv);
 						event.stopPropagation();
-					});
-					addResponsibilityButton.textContent = 'Add';
-					const removeButton = document.createElement('button');
-					removeButton.classList.add('innerFunctionButton');
-					removeButton.addEventListener('click', (event) => {
-						removeResponsibility(newSelectorNum - 1);
-						event.stopPropagation();
-					});
-					removeButton.textContent = 'Remove';
-					containerDiv.append(newLabel, newInput, addResponsibilityButton, removeButton);
-					event.stopPropagation();
 					}}>Add Another Responsibility</button>
-				<button className="innerFunctionButton" type="button" onClick={(event) => {
-					removeResponsibility(0);
-					event.stopPropagation();
-				}}>Remove</button>
+					<button type="button" onClick={(event) => {
+						removeResponsibility(0);
+						event.stopPropagation();
+					}}>Remove</button>
+				</div>
 			</div>
 			<div className="workExperienceInputContainer">
 				<label className="workExperienceLabel" htmlFor="startDateInput">Start Date:  </label>

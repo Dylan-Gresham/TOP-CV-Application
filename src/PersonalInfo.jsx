@@ -43,7 +43,7 @@ export default function PersonalInfo({callback}) {
 				<input className="personalInfoInput" id="emailInput" placeholder={inputs.email} type="email"
 					onChange={(event) => handleChange(3, event.target.value)}></input>
 			</div>
-			<button type="button" onClick={callCallback}>Submit</button>
+			<button className="submitButton" type="button" onClick={callCallback}>Submit</button>
 		</div>
 	);
 }

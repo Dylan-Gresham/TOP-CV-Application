@@ -2,9 +2,10 @@ export default function Preview(props) {
 	let responsibilitiesStr = '';
 	if(props.responsibilities !== undefined && props.responsibilities.length > 0) {
 		props.responsibilities.forEach((str) => {
-			responsibilitiesStr.concat(`, ${str}`);
+			responsibilitiesStr += `${str}, `;
 		});
 	}
+	responsibilitiesStr = responsibilitiesStr.slice(0, responsibilitiesStr.length - 2);
 
 	return (
 		<div className="previewContainer">
@@ -23,11 +24,11 @@ export default function Preview(props) {
 			<div className="section">
 				<h2 className="sectionHeading">Reach Me At:</h2>
 				<div className="innerContact">
-					<h6>By Phone:</h6>
+					<h4>By Phone:</h4>
 					<p>{` ${props.phone}`}</p>
 				</div>
 				<div className="innerContact">
-					<h6>By Email:</h6>
+					<h4>By Email:</h4>
 					<p>{` ${props.email}`}</p>
 				</div>
 			</div>
