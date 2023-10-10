@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 export default function WorkExperience({callback}) {
 	const [inputs, setInputs] = useState({company: 'Example Inc.', position: 'Fullstack Developer', responsibilities: [
@@ -70,7 +70,7 @@ export default function WorkExperience({callback}) {
 					newInput.id = `responsibilities${newSelectorNum++}`;
 					newInput.classList.add('workExperienceInput');
 					newInput.setAttribute('type', 'text');
-					newInput.setAttribute('placeholder', inputs.responsibilities[0]);
+					newInput.setAttribute('placeholder', 'Did ...');
 					const addResponsibilityButton = document.createElement('button');
 					addResponsibilityButton.classList.add('addButton');
 					addResponsibilityButton.addEventListener('click', (event) => {

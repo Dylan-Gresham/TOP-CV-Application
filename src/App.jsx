@@ -13,7 +13,6 @@ function App() {
 		lastName: '',
 		phone: '',
 		email: '',
-		fax: '',
 		schoolName: '',
 		major: '',
 		sStartDate: '',
@@ -36,7 +35,7 @@ function App() {
 	}
 
 	function handlePersonalInfoChange(childProps) {
-		setPreviewInputs({...previewInputs, firstName: childProps.firstName, lastName: childProps.lastName, phone: childProps.phone, email: childProps.email, fax: childProps.fax});
+		setPreviewInputs({...previewInputs, firstName: childProps.firstName, lastName: childProps.lastName, phone: childProps.phone, email: childProps.email});
 	}
 
 	function handleEducationChange(childProps) {
@@ -51,16 +50,16 @@ function App() {
 		return (
 			<div className="mainContainer">
 				<button className="showPreviewButton" type="button" onClick={handleShowPreview}>Go Back to Editor</button>
-				<Preview props={previewInputs} />
+				<Preview {...previewInputs} />
 			</div>
 		);
 	} else {
 		return (
 			<div className="mainContainer">
 				<Header />
-				<PersonalInfo callback={handlePersonalInfoChange} />
-				<Education callback={handleEducationChange} />
-				<WorkExperience callback={handleWorkExperienceChange} />
+				<PersonalInfo firstName={previewInputs.firstName} lastName={previewInputs.lastName} phone={previewInputs.phone} email={previewInputs.email} callback={handlePersonalInfoChange} />
+				<Education school={previewInputs.schoolName} major={previewInputs.major} startDate={previewInputs.sStartDate} endDate={previewInputs.sEndDate} callback={handleEducationChange} />
+				<WorkExperience company={previewInputs.company} position={previewInputs.position} responsibilities={previewInputs.responsibilities} startDate={previewInputs.startDate} endDate={previewInputs.endDate} callback={handleWorkExperienceChange} />
 				<button className="showPreviewButton" type="button" onClick={handleShowPreview}>Show Preview</button>
 				<Footer />
 			</div>
